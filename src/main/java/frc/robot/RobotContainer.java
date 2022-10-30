@@ -41,7 +41,7 @@ public class RobotContainer {
   private void configureButtonBindings() {
     XboxController exBox = new XboxController(0);
     JoystickButton joySteck = new JoystickButton(exBox, Button.kY.value);
-    joySteck.whenPressed(shooterCommand);
+    joySteck.whenHeld(shooterCommand);
   }
 
   /**
