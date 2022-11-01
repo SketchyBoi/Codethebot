@@ -10,7 +10,7 @@ public class UpperShoot extends CommandBase{
     Timer timeIt = new Timer();
     public UpperShoot(Shooter asdf) {
         shot = asdf;
-    }kuytiutkvhgdhgcltuf;jgo67djhvltudj.hbiuovltydhjb;iuyrfmnv8yufjhbuyd
+    }
     @Override
     public void initialize() {
         shot.setSpeed(0);
