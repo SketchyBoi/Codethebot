@@ -39,9 +39,7 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-    XboxController exBox = new XboxController(0);
-    JoystickButton joySteck = new JoystickButton(exBox, Button.kY.value);
-    joySteck.whenHeld(shooterCommand);
+    
   }
 
   /**

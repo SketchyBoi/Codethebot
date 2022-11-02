@@ -14,9 +14,6 @@ package frc.robot;
  */
 public final class Constants {
     public static final class Shooter {
-        public static final int right_shooter_motor = 15;
-        public static final int left_shooter_motor = 16;
-        public static final double upper_speed = 0.5;
-        public static final double lower_speed = 0.2;
+
     }
 }
