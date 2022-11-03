@@ -4,13 +4,14 @@
 
 package frc.robot;
 
+import javax.naming.ConfigurationException;
+
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.XboxController.Button;
-import frc.robot.commands.ExampleCommand;
-import frc.robot.commands.UpperShoot;
-import frc.robot.subsystems.ExampleSubsystem;
-import frc.robot.subsystems.Shooter;
+import frc.robot.Constants;
+import frc.robot.commands.TankDrive;
+import frc.robot.subsystems.Drivetrain;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 
@@ -21,14 +22,10 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
  * subsystems, commands, and button mappings) should be declared here.
  */
 public class RobotContainer {
-  // The robot's subsystems and commands are defined here...
-  private final Shooter shooterSubsystem = new Shooter();
 
-  private final UpperShoot shooterCommand = new UpperShoot(shooterSubsystem);
-
-  /** The container for the robot. Contains subsystems, OI devices, and commands. */
+  // rename o drivetrain (f2 shortcut)
+    private final Drivetrain drivetrainSubsystem = new Drivetrain();
   public RobotContainer() {
-    // Configure the button bindings
     configureButtonBindings();
   }
 
@@ -37,9 +34,11 @@ public class RobotContainer {
    * instantiating a {@link GenericHID} or one of its subclasses ({@link
    * edu.wpi.first.wpilibj.Joystick} or {@link XboxController}), and then passing it to a {@link
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
-   */
+   */ 
   private void configureButtonBindings() {
-
+      XboxController pilot = new XboxController(0);
+      
+      drivetrainSubsystem.setDefaultCommand(new TankDrive(drivetrainSubsystem, pilot::getLeftY, pilot::getRightY));
   }
 
   /**
