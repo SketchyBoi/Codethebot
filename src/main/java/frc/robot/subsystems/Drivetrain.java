@@ -11,25 +11,18 @@ public class Drivetrain extends SubsystemBase{
     private WPI_TalonFX leftFrontMotor = new WPI_TalonFX(Constants.Drivetrain.left_front);
     private WPI_TalonFX rightBackMotor = new WPI_TalonFX(Constants.Drivetrain.right_back);
     private WPI_TalonFX leftBackMotor = new WPI_TalonFX(Constants.Drivetrain.left_back);
-
+    
+    private MotorControllerGroup leftDrive = new MotorControllerGroup(leftFrontMotor, leftBackMotor);
+    private MotorControllerGroup rightDrive = new MotorControllerGroup(rightFrontMotor, rightBackMotor);
     
     public Drivetrain ()
     {
-        // use motorcontroller groups for inversions
-        rightFrontMotor.setInverted(true);
-        leftFrontMotor.setInverted(false);
-        rightBackMotor.setInverted(true);
-        leftBackMotor.setInverted(false);
+        rightDrive.setInverted(true);
+        leftDrive.setInverted(false);
     }
-    
-    // move to above constructor (alt arrows)
-    private MotorControllerGroup leftDrive = new MotorControllerGroup(leftFrontMotor, leftBackMotor);
-    private MotorControllerGroup rightDrive = new MotorControllerGroup(rightFrontMotor, rightBackMotor);
-
-    // speed & speed2 should be more specific
-    public void setSpeed (double speed, double speed2)
+    public void setSpeed (double leftSpeed, double rightSpeed)
     {
-        leftDrive.set(speed);
-        rightDrive.set(speed2);
+        leftDrive.set(leftSpeed);
+        rightDrive.set(rightSpeed);
     }
 }

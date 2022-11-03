@@ -24,7 +24,7 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 public class RobotContainer {
 
   // rename o drivetrain (f2 shortcut)
-    private final Drivetrain drivetrainSubsystem = new Drivetrain();
+    private final Drivetrain drivetrain = new Drivetrain();
   public RobotContainer() {
     configureButtonBindings();
   }
@@ -38,7 +38,7 @@ public class RobotContainer {
   private void configureButtonBindings() {
       XboxController pilot = new XboxController(0);
       
-      drivetrainSubsystem.setDefaultCommand(new TankDrive(drivetrainSubsystem, pilot::getLeftY, pilot::getRightY));
+      drivetrain.setDefaultCommand(new TankDrive(drivetrain, pilot::getLeftY, pilot::getRightY));
   }
 
   /**
